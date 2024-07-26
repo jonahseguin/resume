@@ -27,4 +27,4 @@ jobs:
           git checkout -B gh-pages
           git add resume.pdf
           git commit -m "Meow"
-          git push --force
+          git push origin gh-pages --force
