@@ -12,23 +12,16 @@ jobs:
         uses: xu-cheng/latex-action@v3
         with:
           root_file: resume.tex
-          extra_fonts: |
-            ./fonts/*.otf
       - name: Upload PDF file
         uses: actions/upload-artifact@v4
         with:
           name: resume
           path: resume.pdf
-      # - name: Release
-      #   uses: softprops/action-gh-release@v2
-      #   if: startsWith(github.ref, 'refs/tags/')
-      #   with:
-      #     files: resume.pdf
       - name: Commit and push to gh-pages
         run: |
           git config --global user.name 'Jonah Seguin'
           git config --global user.email 'jonahseguin@users.noreply.github.com'
           git checkout -B gh-pages
           git add resume.pdf
-          git commit -m "Meow"
+          git commit -m "Update resume.pdf"
           git push origin gh-pages --force
